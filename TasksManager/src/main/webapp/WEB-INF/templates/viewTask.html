@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tasks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap4/bootstrap.min.css" th:href="@{/css/bootstrap4/bootstrap.min.css}"/>
+  </head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #20B2AA;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" style="color: white" href="#" th:href="@{/tasks}">Tasks Manager</a>
+			</div>
+			<div>
+				<a href="#" style="color: white;" th:href="@{/tasks/add}">Add Task</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<br />
+	    <div class="row">
+			<h4 class="col-sm-3">Task Detail</h4>
+		</div>
+		<div class="row">
+			<!-- <label>ID:<span th:text="${task.id}">id</span></label>-->
+			<h6 class="col-sm-2">ID:</h6>
+			<div class="col-sm-2">
+				<span th:text="${task.id}">id</span>
+			</div>
+		</div>
+		<div class="row">
+			<!--<label>Description:<span th:text="${task.description}">description</span></label>-->
+			<h6 class="col-sm-2">Description:</h6>
+			<div class="col-sm-2">
+				<span th:text="${task.description}">description</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

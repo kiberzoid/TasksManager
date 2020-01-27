@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tasks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap4/bootstrap.min.css" th:href="@{/css/bootstrap4/bootstrap.min.css}"/>
+  </head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #20B2AA;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" style="color: white" href="#" th:href="@{/tasks}">Tasks Manager</a>
+			</div>
+			<div>
+				<a href="#" style="color: white;" th:href="@{/tasks/add}">Add Task</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<br />
+		<h4 class="col-sm-3">Add or Update Task</h4>
+		<form action="#" th:object="${task}" th:action="@{/tasks}" method="post">
+			<div class="form-group col-md-2">
+					<label for="task_id">ID</label>
+					<input id="task_id" class="form-control" type="text" th:field="*{id}" />
+					<span class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+			</div>
+			<div class="form-group col-md-2">
+				<label for="task_description">Description</label>
+				<input id="task_description" class="form-control" type="text" th:field="*{description}" />
+				<span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+			</div>
+			<div class="form-group col-md-1">
+				<input type="submit" class="btn btn-info" value="Done">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

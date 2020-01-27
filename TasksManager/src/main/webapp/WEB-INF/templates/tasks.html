@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tasks</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap4/bootstrap.min.css" th:href="@{/css/bootstrap4/bootstrap.min.css}"/>
+  </head>
+<body>
+	<nav class="navbar navbar-default sticky-top" style="background-color: #20B2AA;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" style="color: white" href="#" th:href="@{/tasks}">Tasks Manager</a>
+			</div>
+			<div>
+				<a href="#" style="color: white;" th:href="@{/tasks/add}">Add Task</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<br />
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Description</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="task : ${tasks}">
+					<td th:text="${task.id}">id</td>
+					<td th:text="${task.description}">description</td>
+					<td>
+						<a class="btn btn-info" th:href="@{/tasks/{id}(id=${task.id})}">View</a>
+						<a class="btn btn-primary" th:href="@{/tasks/{id}/update(id=${task.id})}">Update</a>
+						<a class="btn btn-danger" th:href="@{/tasks/{id}/delete(id=${task.id})}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
